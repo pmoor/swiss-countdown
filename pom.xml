@@ -23,7 +23,7 @@
     <version>1.0</version>
 
     <name>Swiss Countdown</name>
-    <description>Create count downs shaped like the Swiss flag in PDF form.</description>
+    <description>Create countdowns shaped like the Swiss flag in PDF form.</description>
     <url>https://github.com/pmoor/swiss-countdown</url>
 
     <properties>
