@@ -94,7 +94,7 @@ public class PageRenderer {
     // Draw the white box + black outline.
     stream.setStrokingColor(Color.BLACK);
     stream.setNonStrokingColor(Color.WHITE);
-    stream.setLineWidth(0.5f);
+    stream.setLineWidth(settings.getBoxSize().scale(0.02f).points);
     traceRectangle(stream, topLeft, bottomRight);
     stream.fillAndStroke();
 
