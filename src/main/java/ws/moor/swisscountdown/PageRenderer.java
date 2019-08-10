@@ -144,10 +144,8 @@ public class PageRenderer {
   }
 
   private void traceRectangle(PDPageContentStream stream, LengthVector bottomLeft, LengthVector topRight) throws IOException {
-    stream.moveTo(bottomLeft.x.points, bottomLeft.y.points);
-    stream.lineTo(bottomLeft.x.points, topRight.y.points);
-    stream.lineTo(topRight.x.points, topRight.y.points);
-    stream.lineTo(topRight.x.points, bottomLeft.y.points);
-    stream.lineTo(bottomLeft.x.points, bottomLeft.y.points);
+    stream.addRect(
+        bottomLeft.x.points, bottomLeft.y.points,
+        topRight.minus(bottomLeft).x.points, topRight.minus(bottomLeft).y.points);
   }
 }

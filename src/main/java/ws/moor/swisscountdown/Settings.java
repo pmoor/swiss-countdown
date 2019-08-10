@@ -68,7 +68,7 @@ public class Settings {
   public static class Builder {
     private int topArmWidth = 6;
     private int topArmHeight = 7;
-    private Length boxSize = Length.ofCentimeters(0.5f);
+    private Length boxSize = null;
     private Length borderWidth = null;
     private LocalDate lastDay = null;
 
@@ -98,11 +98,17 @@ public class Settings {
     }
 
     Settings build() {
+      if (boxSize == null) {
+        boxSize = Length.ofInches(8).scale(1.0f / (topArmWidth * 3 + topArmHeight * 2));
+      }
+      if (borderWidth == null) {
+        borderWidth = boxSize.scale(topArmWidth);
+      }
       return new Settings(
           topArmWidth,
           topArmHeight,
           boxSize,
-          borderWidth != null ? borderWidth : boxSize.scale(topArmWidth),
+          borderWidth,
           lastDay);
     }
   }
